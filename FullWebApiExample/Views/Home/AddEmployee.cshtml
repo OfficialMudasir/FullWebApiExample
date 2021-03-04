@@ -1,0 +1,77 @@
+﻿@model FullWebApiExample.Models.Employee
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Add Employee";
+}
+
+<h2>Add Employeee <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+
+<form asp-action="AddEmployee" method="post">   
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label for="Name">Name:</label>
+        <input class="form-control" name="Name" />
+    </div>
+    <div class="form-group">
+        <label for="Email">Email:</label>
+        <input class="form-control" name="Email" />
+    </div>
+    <div class="form-group">
+        <label for="Mobile">Mobile:</label>
+        <input class="form-control" name="Mobile" />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+</form>
+@if (Model != null)
+{
+    if (Model.Id == 0)
+    {
+        <h2>New Employee</h2>
+        <table class="table table-sm table-striped table-bordered m-2">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+
+                    <th>Mobile</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Id</td>
+
+                    <td>@Model.Name</td>
+                    <td>@Model.Email</td>
+                    <td>@Model.Mobile</td>
+
+
+
+                </tr>
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+<div id="hide" class="alert alert-success alert-dismissible fade show" role="alert" style=" top: 60px; right: 290px; position: absolute;">
+    <div style="position:relative;">
+        <strong>
+            Employee Added Successfully <a href="#" class="close" data-bs-dismiss="alert" aria-label="Close" 
+                                                              style="position:relative;top:-10px;right:0px;">&times;</a>
+        </strong>
+        
+        
+    </div>
+</div>
+    }
+
+}
+<script>
+    setInterval(function () {
+        document.getElementById("hide").style.display = "none";
+    }, 2000
+    )</script>

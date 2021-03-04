@@ -1,0 +1,58 @@
+﻿@model FullWebApiExample.Models.Employee
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Update Employee";
+}
+
+<h3>Update Employee </h3><a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Back</a>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Id"></label>
+        <input class="form-control" asp-for="Id" readonly/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name"/>
+    </div>
+     <div class="form-group">
+        <label asp-for="Email"></label>
+        <input class="form-control" asp-for="Email"/>
+    </div>
+     <div class="form-group">
+        <label asp-for="Mobile"></label>
+        <input class="form-control" asp-for="Mobile"/>
+    </div>
+
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-primary">Update</button>
+
+    </div>
+
+</form>
+
+@if(ViewBag.Result == "Success")
+{
+    <h2>Updated Employee</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+
+                <th>Email</th>
+
+                <th>Mobile</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Name</td>
+                <td>@Model.Email</td>
+                <td>@Model.Mobile</td>
+
+            </tr>
+        </tbody>
+    </table>
+}
