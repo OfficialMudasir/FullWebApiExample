@@ -7,12 +7,12 @@ namespace FullWebApiExample.Models
 {
     public interface IRepository
     {
-        IEnumerable<Reservation> Reservations { get; }
-        Reservation this[int id] { get; }
-        Reservation AddReservation(Reservation reservation);
-        Reservation UpdateReservation(Reservation reservation);
-        void DeleteReservation(int id);
-        Reservation Details(Reservation reservation);
+        IEnumerable<Employee> Employees { get; }
+        Employee this[int id] { get; }
+        Employee AddEmployee(Employee employee);
+        Employee UpdateEmployee(Employee employee);
+        void DeleteEmployee(int id);
+        Employee Details(Employee employee);
     }
 }
     

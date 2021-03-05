@@ -1,4 +1,4 @@
-﻿@model FullWebApiExample.Models.Reservation
+﻿@model FullWebApiExample.Models.Employee
 @{
     Layout = "_Layout";
     ViewBag.Title = "Details";
@@ -19,9 +19,11 @@
                     <tr>
                         <th>Id</th>&nbsp;
                         <th>Name</th>&nbsp;
-                        <th>Start Location</th>&nbsp;
-                        <th>End Location</th>&nbsp;
-                        
+                        <th>Email</th>&nbsp;
+                        <th>Mobile</th>&nbsp;
+                        <th>Address</th>&nbsp;
+
+
                     </tr>
                 </thead>
                 <tbody>
@@ -29,8 +31,10 @@
                         <td> @Model.Id</td>&nbsp;
                         <td> @Model.Name</td>&nbsp;
 
-                        <td> @Model.StartLocation</td>&nbsp;
-                        <td> @Model.EndLocation</td>&nbsp;
+                        <td> @Model.Email</td>&nbsp;
+                        <td> @Model.Mobile</td>&nbsp;
+                        <td> @Model.Address</td>&nbsp;
+
 
 
 

@@ -9,54 +9,56 @@ namespace FullWebApiExample.Models
     public class MockRepository : IRepository
     {
 
-        private Dictionary<int, Reservation> items;
+        private Dictionary<int, Employee> items;
         public MockRepository()
         {
-            items = new Dictionary<int, Reservation>();
-            new List<Reservation>
+            items = new Dictionary<int, Employee>();
+            new List<Employee>
             {
-                new Reservation {Id = 1, Name = "Mudasir", StartLocation = "Kashmir", EndLocation = "Everest"},
-                new Reservation {Id = 2, Name = "Mussaib", StartLocation = "delhi", EndLocation = "New York"},
-                new Reservation {Id = 3, Name = "Ahmad", StartLocation = "Aligarh", EndLocation = "USA"}
+                new Employee {Id = 1, Name = "Mudasir", Email = "Kashmir", Mobile = "Everest", Address = "kasheer"},
+                new Employee {Id = 2, Name = "Mussaib", Email = "delhi", Mobile = "New York", Address = "kasheer"},
+                new Employee {Id = 3, Name = "Ahmad", Email = "Aligarh", Mobile = "USA", Address = "kasheer"}
 
-            }.ForEach(r => AddReservation(r));
+            }.ForEach(r => AddEmployee(r));
         }
 
         // this is for [httpget("{id}")] to retturn perticular id item
-        public Reservation this[int id] => items.ContainsKey(id)? items[id]:null;
+        public Employee this[int id] => items.ContainsKey(id)? items[id]:null;
         // this is for [httpget] to return all items
-        public IEnumerable<Reservation> Reservations => items.Values;
+        public IEnumerable<Employee> Employees => items.Values;
         // adding new record to the Reservation
-        public Reservation AddReservation(Reservation reservation)
+        public Employee AddEmployee(Employee employee)
         {
             int key = items.Count();
             //Debug.Write(key);
             while (items.ContainsKey(key))
             {
                 key++;
-                reservation.Id = key;
+                employee.Id = key;
                 
             }
             
-            items[reservation.Id] = reservation;
-            return reservation;
+            items[employee.Id] = employee;
+            return employee;
         }
 
-        public void DeleteReservation(int id) => items.Remove(id);
+       
+
+        public void DeleteEmployee(int id) => items.Remove(id);
 
         
        
 
-        public Reservation Details(Reservation reservation)
+        public Employee Details(Employee employee)
         {
-            if(reservation.Id != 0)
+            if(employee.Id != 0)
             {
-                reservation = items[reservation.Id];
+                employee = items[employee.Id];
             }
-            return reservation;
+            return employee;
         }
 
-        public Reservation UpdateReservation(Reservation reservation) => AddReservation(reservation);
+        public Employee UpdateEmployee(Employee employee) => AddEmployee(employee);
 
 
         

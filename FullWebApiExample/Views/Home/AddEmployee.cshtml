@@ -6,7 +6,7 @@
 
 <h2>Add Employeee <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
 
-<form asp-action="AddEmployee" method="post">   
+<form asp-action="AddEmployee" method="post">
     <input type="hidden" asp-for="Id" />
     <div class="form-group">
         <label for="Name">Name:</label>
@@ -20,6 +20,11 @@
         <label for="Mobile">Mobile:</label>
         <input class="form-control" name="Mobile" />
     </div>
+    <div class="form-group">
+        <label for="Address">Address:</label>
+        <input class="form-control" name="Address" />
+    </div>
+
     <div class="text-center panel-body">
         <button type="submit" class="btn btn-sm btn-primary">Add</button>
     </div>
@@ -37,6 +42,7 @@
                     <th>Email</th>
 
                     <th>Mobile</th>
+                    <th>Address</th>
 
                 </tr>
             </thead>
@@ -47,6 +53,9 @@
                     <td>@Model.Name</td>
                     <td>@Model.Email</td>
                     <td>@Model.Mobile</td>
+                    <td>@Model.Address</td>
+
+
 
 
 
